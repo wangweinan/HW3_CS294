@@ -4,9 +4,9 @@ import sys
 import nltk
 import re
 from nltk.corpus import stopwords
-from porterstemmer import Stemmer
-from collections import Counter
-stem = Stemmer()
+from nltk.stem import PorterStemmer
+from Counter import Counter
+stem = PorterStemmer()
 list = []
 inPage = False
 inText = False
@@ -36,10 +36,10 @@ for line in sys.stdin:
         for x in temp_1.split():
         	if x not in stopwords.words('english'):
         		res.append(x)
-        clean_text = " ".join(stem(word) for word in res)
+        clean_text = " ".join(stem.stem_word(word) for word in res)
         tokens = nltk.word_tokenize(clean_text)
         cnt = Counter(tokens)
-        print(cnt)
+        print(dict(cnt))
         list = []
         continue
     

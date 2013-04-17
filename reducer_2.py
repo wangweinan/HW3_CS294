@@ -4,13 +4,14 @@ import pickle
 import nltk
 import re
 from nltk.corpus import stopwords
-from porterstemmer import Stemmer
-from collections import Counter
-stem = Stemmer()
+from nltk.stem import PorterStemmer
+import Counter
+stem = PorterStemmer()
 
 Dict = dict()
-Data = sys.stdin.readlines()
-Data = Data[0][len("Counter("): -len("))")]
-Data = eval(Data)
-Dict.update(Data)
+for line in sys.stdin:
+	line = line.strip()
+	Data = eval(line)
+	Dict.update(Data)
+	
 print(Dict)
