@@ -5,7 +5,7 @@ import nltk
 import re
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-from Counter import Counter
+from collections import Counter
 stem = PorterStemmer()
 list = []
 inPage = False
